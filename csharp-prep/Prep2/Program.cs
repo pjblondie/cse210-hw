@@ -6,7 +6,7 @@ class Program
     {
         Console.WriteLine("Hello Prep2 World!");
         {
-            Console.WriteLine("What is your grade percentage?");
+            Console.Write("What is your grade percentage? ");
             string gradePercent = Console.ReadLine();
 
             float gradeNum = float.Parse(gradePercent);
