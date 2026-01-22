@@ -41,52 +41,53 @@ class Program
         //     thought to themselves 
         //     that it became a big deal to go back to {place}, for without it they felt {adjTwo}");
 
-        int number = 8;
-        number = 20;
-        number = 0;
-        if (number < 10 && number > -10)
-        {
-            Console.WriteLine($"Your number, {number} is single diget");
-        }
-        else
-        {
-            Console.WriteLine("Multi-diget");
-        }
-        if (number >= 10 || number <= -10)
-        {
-            Console.WriteLine("Your number is multi-diget");
-        }
-        else
-        {
-            Console.WriteLine("Single-Diget");
-        }
+      
+      //if statements
+        // int number = 8;
+        // number = 20;
+        // number = 0;
+        // if (number < 10 && number > -10)
+        // {
+        //     Console.WriteLine($"Your number, {number} is single diget");
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Multi-diget");
+        // }
+        // if (number >= 10 || number <= -10)
+        // {
+        //     Console.WriteLine("Your number is multi-diget");
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Single-Diget");
+        // }
 
         //While Loops
 
-        string response = "yes";
-        while (response == "yes")
-        {
-            Console.Write("Do you want to continue? ");
-            response = Console.ReadLine()!;
-        }
-        Console.WriteLine("Done!");
+        //     string response = "yes";
+        //     while (response == "yes")
+        //     {
+        //         Console.Write("Do you want to continue? ");
+        //         response = Console.ReadLine()!;
+        //     }
+        //     Console.WriteLine("Done!");
 
-        int final = 11;
-        while (final != 0)
-        {
-            final = final - 1;
-            Console.WriteLine($"{final}");
+        //     int final = 11;
+        //     while (final != 0)
+        //     {
+        //         final = final - 1;
+        //         Console.WriteLine($"{final}");
+        //     }     
+
+        // Functions
+        void DisplayMessage(string name){
+            Console.WriteLine($"Hello {name}!");
         }
+
+        DisplayMessage("World!");
+        
     }
-
-
-
-
-
-        
-
-        
-    
 }
 
 // Notes Start here!
