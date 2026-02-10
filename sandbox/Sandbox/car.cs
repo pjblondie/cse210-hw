@@ -50,7 +50,6 @@ public class Car
                         Console.WriteLine("1");
                         Thread.Sleep(1000);
                         Console.WriteLine("*KABOOM*");
-                        IsRunning = false;
                     }
 
 
