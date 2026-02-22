@@ -28,8 +28,15 @@ public class Reference
         _verseEnd = verseEnd; 
     }
 
-    public void GetDisplayText()
+    public string GetDisplayText()
     {
-        
+        if (_verseEnd == 0)
+        {
+            return ($"{_book} {_chapter}: {_verseStart}");
+        }
+        else
+        {
+            return ($"{_book}, {_chapter}: {_verseStart}-{_verseEnd}");
+        }
     }
 }
