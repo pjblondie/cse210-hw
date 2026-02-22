@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        Word TestWord = new Word("Lehi");
+        Console.WriteLine($"{TestWord.SwapText()}");
+        TestWord.Hide();
+        Console.WriteLine($"{TestWord.SwapText()}");
     }
 }
