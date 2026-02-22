@@ -5,7 +5,6 @@ class Program
     static void Main(string[] args)
     {
 
-        Console.WriteLine("Hello Develop02 World!");
         int running = 1;
         List<string> randomPrompts = new List<string>{ "Is the one thing you used today that your life would feel uncomplete without? Why?",
                 "You are given the choice to get something you've been wanting for awhile, but you have to get rid of the thing that brought you the most day today, would you do it?",

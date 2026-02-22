@@ -2,7 +2,7 @@ using System;
 using System.Runtime;
 using System.Threading;
 
-public class Program
+public class Program_car
 {
     public static void Main()
     {
@@ -13,8 +13,9 @@ public class Program
 
 public class Car
 {
-    public Door driverDoor = new Door();
-    public Door passengerDoor = new Door();
+    public Door driverDoor = new Door("Driver", false);
+
+    public Door passengerDoor = new Door("Passenger", false);
     public Horn carHorn = new Horn();
     public RemoteClicker clicker = new RemoteClicker();
     public bool IsRunning = true;
@@ -23,6 +24,7 @@ public class Car
     {
         driverDoor.Name = "Driver Door";
         passengerDoor.Name = "Passenger Door";
+        
            int i = 0;
         while (IsRunning)
         {
@@ -96,6 +98,12 @@ public class Door
 {
     public string Name;
     public bool IsOpen = false;
+
+    public Door(string name, bool isOpen)
+    {
+        string Name = name;
+        bool IsOpen = isOpen;
+    }
 
     public void Toggle()
     {
