@@ -15,7 +15,7 @@ public class Word
     }
     public bool IsHidden()
     {
-        return _show;
+        return !_show;
     }
 
     public string SwapText()
