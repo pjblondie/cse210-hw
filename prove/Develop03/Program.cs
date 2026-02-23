@@ -30,20 +30,29 @@ class Program
         // TESTS // 
 
         Reference TestReference = new Reference("Nephi", 4, 10);
+
         Scripture TestScripture = new Scripture(TestReference, "And it came to pass that I was constrained by the Spirit that I should kill Laban; but I said in my heart: Never at any time have I shed the blood of man. And I shrunk and would that I might not slay him.");
+
+
+
         string UserInput = ("");
-        while (UserInput != "quit" && TestScripture.FullyHidden() == false)
+        while (UserInput != "quit")
         {
             Console.Clear();
+            Console.WriteLine("Welcome to the Scripture Memorization programm! \n");
             Console.WriteLine(TestScripture.DisplayScripture());
+            Console.Write("\nPlease press enter to hide text and 'quit' if you would like to end early: ");
             UserInput = Console.ReadLine();
+            if (TestScripture.FullyHidden() == true)
+            {
+                break; 
+            }
             if (UserInput == "")
             {
                 TestScripture.HideWords();
             }
         }
-        Console.Clear();
-        Console.WriteLine(TestScripture.DisplayScripture());
+        
     
     
     }
