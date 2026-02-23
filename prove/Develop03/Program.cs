@@ -41,7 +41,7 @@ class Program
             Console.Clear();
             Console.WriteLine("Welcome to the Scripture Memorization programm! \n");
             Console.WriteLine(TestScripture.DisplayScripture());
-            Console.Write("\nPlease press enter to hide text and 'quit' if you would like to end early: ");
+            Console.Write("\nPlease press enter to hide text and 'quit' if you would like to end early: \n");
             UserInput = Console.ReadLine();
             if (TestScripture.FullyHidden() == true)
             {
