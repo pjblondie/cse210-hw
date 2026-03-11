@@ -52,8 +52,6 @@ class Program
                 TestScripture.HideWords();
             }
         }
-        
-    
     
     }
 }
