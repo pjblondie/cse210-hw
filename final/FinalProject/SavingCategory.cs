@@ -6,4 +6,9 @@ public class SavingCategory : Category
     {
         return "";
     }
+
+    public SavingCategory(string name, string description, double limit) : base(name, description, limit)
+    {
+
+    }
 }
