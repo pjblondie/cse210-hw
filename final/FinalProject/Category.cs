@@ -1,10 +1,7 @@
-public class Category
+public abstract class Category
 {
     protected string _name;
     protected double _limitAmount;
 
-    public virtual string GetCategoryDetails()
-    {
-        return "";
-    }
+    public abstract string GetCategoryDetails();
 }

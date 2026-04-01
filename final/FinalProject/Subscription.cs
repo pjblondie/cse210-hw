@@ -1,11 +1,8 @@
-public class Subscription
+public abstract class Subscription
 {
     protected string _name;
 
     protected double _price;
 
-    public abstract double GetMonthlyCost()
-    {
-        return 2.3;
-    }
+    public abstract double GetMonthlyCost();
 }

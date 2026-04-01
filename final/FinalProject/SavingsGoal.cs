@@ -1,16 +1,18 @@
 public class SavingsGoal
 {
-    private string _userResponse;
 
     private string _promptText;
-    private bool achieved;
+    private string _userResponse;
+
+  
+    private bool isAchieved;
 
     public void AskGoal()
     {
 
     }
     
-    public void IsAchieved(){
+    public void MarkAsAchieved(){
         
     }
 }
