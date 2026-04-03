@@ -18,13 +18,17 @@ public abstract class Goal
 
     }
 
-    public abstract void RecordEvent();
-
+    public string GetName()
+    {
+        return _name;
+    }
+    public abstract int RecordEvent();
 
     public virtual bool IsComplete()
     {
         return false;
     }
+
 
 
     public virtual string StringDetails()
