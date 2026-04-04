@@ -149,7 +149,7 @@ class GoalManager
 
                 int pointsEarned = _goals[index].RecordEvent();
                 _score += pointsEarned;
-
+                
                 Console.WriteLine($"Congratulations! You earned {pointsEarned} points!");
                 Console.WriteLine($"You now have {_score} points.");
 
