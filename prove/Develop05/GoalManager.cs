@@ -11,7 +11,7 @@ class GoalManager
         _score = 0;
     }
 
-    public void displayMenu()
+    public void DisplayMenu()
     {
         bool quit = false;
         while (quit == false)

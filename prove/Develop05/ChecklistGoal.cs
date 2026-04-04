@@ -29,7 +29,7 @@ public class ChecklistGoal : Goal
     {
     _amountCompleted = amount;
     }
-    
+
     public override string StringRep()
     {
         return $"ChecklistGoal:{_name},{_description},{_points},{_bonus},{_target},{_amountCompleted}"; ;
@@ -37,6 +37,7 @@ public class ChecklistGoal : Goal
 
     public override bool IsComplete()
     {
+    
         return _amountCompleted >= _target;
     }
     public override string StringDetails()
