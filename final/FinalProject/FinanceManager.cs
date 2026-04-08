@@ -91,7 +91,7 @@ public class FinanceManager
                     Console.WriteLine("------------------------------------------------------");
                     Console.WriteLine($"Success! '{name}' added as a Saving Category.");
                     Console.WriteLine("------------------------------------------------------");
-                    Console.WriteLine("     Please press enter to return to menu: ");
+                    Console.Write("     Please press enter to return to menu: ");
                     Console.ReadLine();
                     Console.Clear();
                 }
@@ -281,8 +281,8 @@ public class FinanceManager
                 foreach (Category cat in _categories)
                 {
                     Console.WriteLine("------------------------------------");
-                    Console.WriteLine($"Name: {cat.GetName()}, {cat.GetCategoryDetails}");
-                    Console.WriteLine($"Description {cat.GetDescription()}");
+                    Console.WriteLine($"Name: {cat.GetName()}, {cat.GetCategoryDetails()}");
+                    Console.WriteLine($"Description: {cat.GetDescription()}");
                     Console.WriteLine($"Budget: ${cat.GetRemaining():F2} remaining of ${cat.GetLimit():F2}");
                     Console.WriteLine("------------------------------------");
 
@@ -390,23 +390,28 @@ public class FinanceManager
         }
 
 
-   public void LoadFromFile()
+public void LoadFromFile()
 {
     Console.Write("Enter the filename to load: ");
     string filename = Console.ReadLine();
 
-    if (File.Exists(filename))
-    {
-        string[] lines = File.ReadAllLines(filename);
-        
-        _categories.Clear();
-        _expenses.Clear();
-        _subscription.Clear();
-        _goals.Clear();
+        if (File.Exists(filename))
+        {
+            string[] lines = File.ReadAllLines(filename);
+
+            _categories.Clear();
+            _expenses.Clear();
+            _subscription.Clear();
+            _goals.Clear();
 
             foreach (string line in lines)
             {
-                string[] mainParts = line.Split(':');
+
+                string[] mainParts = line.Split(':', 2);
+
+
+                if (mainParts.Length < 2) continue;
+
                 string entryType = mainParts[0];
                 string[] data = mainParts[1].Split('|');
 
@@ -438,7 +443,6 @@ public class FinanceManager
                     DateTime date = DateTime.Parse(data[2]);
                     string catName = data[3];
 
-
                     Category found = null;
                     foreach (Category c in _categories)
                     {
@@ -446,47 +450,43 @@ public class FinanceManager
                     }
                     _expenses.Add(new Expense(name, amt, date, found));
                 }
-            else if (entryType == "Subscription")
-            {
-                string subClass = data[0];
-                string name = data[1];
-                double price = double.Parse(data[2]);
-                string catName = data[3];
-
-                Category found = null;
-                foreach (Category c in _categories)
+                else if (entryType == "Subscription")
                 {
-                    if (c.GetName() == catName) { found = c; }
+                    string subClass = data[0];
+                    string name = data[1];
+                    double price = double.Parse(data[2]);
+                    string catName = data[3];
+
+                    Category found = null;
+                    foreach (Category c in _categories)
+                    {
+                        if (c.GetName() == catName) { found = c; }
+                    }
+
+                    if (subClass == "MonthlySubscription")
+                        _subscription.Add(new MonthlySubscription(name, price, found));
+                    else
+                        _subscription.Add(new YearlySubscription(name, price, found));
                 }
+                else if (entryType == "Goal")
+                {
+                    string name = data[0];
+                    string prompt = data[1];
+                    string response = data[2];
+                    bool achieved = bool.Parse(data[3]);
 
-                if (subClass == "MonthlySubscription")
-                    _subscription.Add(new MonthlySubscription(name, price, found));
-                else
-                    _subscription.Add(new YearlySubscription(name, price, found));
+                    SavingsGoal loadedGoal = new SavingsGoal(name, prompt);
+                    loadedGoal.SetLoadedData(response, achieved);
+                    _goals.Add(loadedGoal);
+                }
             }
-            
-            else if (entryType == "Goal")
-            {
-                string name = data[0];
-                string prompt = data[1];
-                string response = data[2];
-                bool achieved = bool.Parse(data[3]);
-
-                SavingsGoal loadedGoal = new SavingsGoal(name, prompt);
-
-                loadedGoal.SetLoadedData(response, achieved); 
-
-                _goals.Add(loadedGoal);
-            }
+            Console.WriteLine("Successfully loaded your records.");
         }
-        
-        Console.WriteLine("Successfully loaded your records.");
+        else
+        {
+            Console.WriteLine("File not found.");
+        }
     }
-    else
-    {
-        Console.WriteLine("File not found.");
-    }
-}
     public void Spinner()
 
     {

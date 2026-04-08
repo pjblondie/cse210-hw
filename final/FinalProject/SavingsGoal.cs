@@ -14,7 +14,8 @@ public class SavingsGoal
 
     public void AskGoal()
     {
-        Console.WriteLine($"\nGoal: {_goalName}");
+        Console.WriteLine("Your Goal is: ");
+        Console.WriteLine($"Goal: {_goalName}");
         Console.Write($"{_promptText} ");
         _userResponse = Console.ReadLine();
     }
