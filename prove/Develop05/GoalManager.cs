@@ -4,13 +4,17 @@ class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
-
+    /// <summary>
+    /// Initializes the goal manager with an empty list of goals and a starting score of zero.
+    /// </summary>
     public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;
     }
-
+    /// <summary>
+    /// Runs the main program loop, displaying the menu and directing the user to various goal actions.
+    /// </summary>
     public void DisplayMenu()
     {
         bool quit = false;
@@ -193,7 +197,9 @@ class GoalManager
             }
         }
     }
-
+    /// <summary>
+    /// Displays the available goal types to the user during the creation process.
+    /// </summary>
     public void GoalTypes()
     {
         Console.WriteLine("The types of Goals are:");
